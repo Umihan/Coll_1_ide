@@ -5,10 +5,7 @@ using System.Text;
 using System.IO;
 /*
  *  Collide
- *  Eine Simulation im 2-dimensionalen Raum
- * 
- * 
- * 
+ *  Eine Simulation im 2-dimensionalen Raum 
  * 2020 TFO-Meran
  */
 
@@ -70,5 +67,22 @@ namespace ConsoleApplication1
 
             }
         }
+
+        static bool SaveConfig(int Anzahl)
+        {
+            var path = @"C:\Users\Daniel Karasani\Desktop\Collide_d\Coll_1_ide"; // Dementsprechend Pfad ändern
+            string text = Convert.ToString(Anzahl);     // Integer Anzahl wird so als string (string text) gespeichert
+            File.WriteAllText(path, text);
+
+            if (File.Exists(path))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
