@@ -70,17 +70,35 @@ namespace ConsoleApplication1
 
         static bool SaveConfig(int Anzahl)
         {
-            var path = @"C:\Users\Daniel Karasani\Desktop\Collide_d\Coll_1_ide"; // Dementsprechend Pfad ändern
+            var pfad = @"C:\Users\Daniel Karasani\Desktop\Collide_d\Coll_1_ide"; // Dementsprechend Pfad ändern
             string text = Convert.ToString(Anzahl);     // Integer Anzahl wird so als string (string text) gespeichert
-            File.WriteAllText(path, text);
+            File.WriteAllText(pfad, text);
 
-            if (File.Exists(path))
+            if (File.Exists(pfad))
             {
                 return true;
             }
             else
             {
                 return false;
+            }
+        }
+
+        public static bool LoadConfig(ref int Anzahl)
+        {
+            var pfad = @"C:\Users\Daniel Karasani\Desktop\config.ini";
+            string nummerntext = File.ReadAllText(pfad);
+            int kontrolle = Convert.ToInt32(nummerntext); // Um die Zahl zu speichern -> um später zu kontrollieren/ überprüfen
+
+            if ((File.Exists(pfad)) & (kontrolle > 0))     // Wenn der Pfad existiert UND die Zahl größer als 0 ist...
+            {
+                Anzahl = kontrolle;     // Anzahl ist nun die Zahl, die von der config.ini Datei rausgelesen wurde
+                return true;            //... true
+            }
+            else
+            {
+                Anzahl = 0;             // Anzahl wird 0
+                return false;           //... false 
             }
         }
 
