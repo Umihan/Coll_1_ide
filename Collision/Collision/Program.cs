@@ -48,19 +48,31 @@ namespace ConsoleApplication1
                 switch (Direction)
                 { 
                     case 0:             //links
-                        posx -= 1;
+                        if (posx != 0)
+                            posx -= 1;
+                        else
+                            posx = seite * 2;
                         break;
 
                     case 1:             //rechts
-                        posx += 1;
+                        if (posx != seite*2)
+                            posx += 1;
+                        else
+                            posx = 0;
                         break;
 
                     case 2:             //oben
-                        posy += 1;
+                        if (posy != 0)
+                            posy += 1;
+                        else
+                            posy = seite;
                         break;
 
                     case 3:             //unten
-                        posy -= 1;
+                        if (posy != seite)
+                            posy -= 1;
+                        else
+                            posy = 0;
                         break;
 
                     default:
