@@ -34,19 +34,20 @@ namespace ConsoleApplication1
             void show()
             {
                 Console.SetCursorPosition(posx, posy);
-                Console.Write(feld);
-
+                Console.Write("0");       //0 wäre dann das Objekt
 
 
             }
             void hide()
             {
-                feld = null;
+                Console.SetCursorPosition(posx, posy);
+                Console.Write(" ");
             }
             void collide()
             {
-                //Verstehe nicht ganz wie man eine Kollision sichtbar machen soll...
-                Move();
+                Console.SetCursorPosition(posx, posy);
+                Console.Write("A");     //Kollision mit dem ersten Objekt
+                Move();            
             }
             //Öffentliche Methoden
             public void Move()
