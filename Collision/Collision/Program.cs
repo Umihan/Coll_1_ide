@@ -40,6 +40,42 @@ namespace ConsoleApplication1
             //Öffentliche Methoden
             public void Move()
             {
+                Random Richtung = new Random();
+                int Direction = Richtung.Next(4);
+                switch (Direction)
+                { 
+                    case 0:             //links
+                        if (posx != 0)
+                            posx -= 1;
+                        else
+                            posx = seite;
+                        break;
+
+                    case 1:             //rechts
+                        if (posx != seite)
+                            posx += 1;
+                        else
+                            posx = 0;
+                        break;
+
+                    case 2:             //oben
+                        if (posy != 0)
+                            posy += 1;
+                        else
+                            posy = seite;
+                        break;
+
+                    case 3:             //unten
+                        if (posy != seite)
+                            posy -= 1;
+                        else
+                            posy = 0;
+                        break;
+
+                    default:
+                        break;
+                
+                }
             }
 
         }
