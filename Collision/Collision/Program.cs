@@ -51,11 +51,11 @@ namespace ConsoleApplication1
                         if (posx != 0)
                             posx -= 1;
                         else
-                            posx = seite * 2;
+                            posx = seite;
                         break;
 
                     case 1:             //rechts
-                        if (posx != seite*2)
+                        if (posx != seite)
                             posx += 1;
                         else
                             posx = 0;
