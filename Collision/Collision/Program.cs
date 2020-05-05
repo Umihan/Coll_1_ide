@@ -5,10 +5,7 @@ using System.Text;
 using System.IO;
 /*
  *  Collide
- *  Eine Simulation im 2-dimensionalen Raum
- * 
- * 
- * 
+ *  Eine Simulation im 2-dimensionalen Raum 
  * 2020 TFO-Meran
  */
 
@@ -70,5 +67,54 @@ namespace ConsoleApplication1
 
             }
         }
+
+        /// <summary>
+        /// Hier wird die Standard-Konfigurationsdatei config.ini erstellt oder geändert und die Anzahl eingetragen.
+        /// Sollte die Datei nicht erstellt werden können, wird ein Rückgabewert false retourniert.
+        /// Ansonsten ist der Rückgabewert true.
+        /// </summary>
+        /// <param name="Anzahl"></param>
+        /// <returns></returns>
+        static bool SaveConfig(int Anzahl)
+        {
+            var pfad = @"..\config.ini"; // Dementsprechend Pfad ändern
+            string text = Convert.ToString(Anzahl);     // Integer Anzahl wird so als string (string text) gespeichert
+            File.WriteAllText(pfad, text);
+
+            if (File.Exists(pfad))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Hier wird die Standard-Konfigurationsdatei config.ini ausgelesen und die Anzahl zurückgegeben.
+        /// Sollte die Datei nicht existieren oder keine Anzahl enthalten,
+        /// wird in Anzahl der Wert 0 und ein Rückgabewert false retourniert.
+        /// Ansonsten ist der Rückgabewert true.
+        /// </summary>
+        /// <param name="Anzahl"></param>
+        /// <returns></returns>
+        public static bool LoadConfig(ref int Anzahl)
+        {
+            var pfad = @"..\config.ini";
+            string nummerntext = File.ReadAllText(pfad);
+            int uebergabe = Convert.ToInt32(nummerntext); // Um die Zahl zu speichern -> um später zu kontrollieren/ überprüfen oder überschreiben
+
+            if ((File.Exists(pfad)) & (uebergabe > 0))     // Wenn der Pfad existiert UND die Zahl größer als 0 ist...
+            {
+                Anzahl = uebergabe;      // Anzahl wird nun umgeändert. Anzahl erhält nun die Zahl, die von der config.ini Datei rausegelesn worden ist und über string nummerntext in int kontrolle abgespeichert worden ist.
+                return true;            //... true
+            }
+            else
+            {
+                return false;           //... false 
+            }
+        }
+
     }
 }
