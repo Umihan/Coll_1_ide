@@ -33,12 +33,20 @@ namespace ConsoleApplication1
             //Private Methoden
             void show()
             {
+                Console.SetCursorPosition(posx, posy);
+                Console.Write(feld);
+
+
+
             }
             void hide()
             {
+                feld = null;
             }
             void collide()
             {
+                //Verstehe nicht ganz wie man eine Kollision sichtbar machen soll...
+                Move();
             }
             //Öffentliche Methoden
             public void Move()
