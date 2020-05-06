@@ -29,6 +29,7 @@ namespace ConsoleApplication1
             // Konstruktor
             public einer()
             {
+                System.Threading.Thread.Sleep(20);
                 farbe = (ConsoleColor)(RanGen.Next(Enum.GetNames(typeof(ConsoleColor)).Length));
                 do
                 {
