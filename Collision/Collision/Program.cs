@@ -38,12 +38,21 @@ namespace ConsoleApplication1
             //Private Methoden
             void show()
             {
+                Console.SetCursorPosition(posx, posy);
+                Console.Write("0");       //0 wäre dann das Objekt
+
+
             }
             void hide()
             {
+                Console.SetCursorPosition(posx, posy);
+                Console.Write(" ");
             }
             void collide()
             {
+                Console.SetCursorPosition(posx, posy);
+                Console.Write("A");     //Kollision mit dem ersten Objekt
+                Move();            
             }
             //Öffentliche Methoden
             public void Move()
